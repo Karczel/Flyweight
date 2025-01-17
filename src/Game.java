@@ -1,6 +1,7 @@
+package src;
+
 import javax.swing.*;
 import java.awt.*;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TimerTask;
@@ -8,9 +9,8 @@ import java.util.Random;
 
 public class Game extends JFrame {
     private WorldPanel worldPanel = new WorldPanel();
-//    private Monster testMonster = new Monster(100, 100);
+//    private src.Monster testMonster = new src.Monster(100, 100);
     private List<Monster> monsters = new ArrayList<Monster>();
-//    Monster [] monsters2 = new Monster[];
 
     public Game(){
         add(worldPanel);
@@ -30,7 +30,7 @@ public class Game extends JFrame {
             @Override
             public void run() {
                 System.out.println("New monster created!");
-                Monster monster = new Monster(
+                Monster monster = new Pikachu(
                         random.nextInt(800),
                         random.nextInt(600)
                 );
@@ -54,7 +54,7 @@ public class Game extends JFrame {
 //        g.setColor(Color.red);
 //        g.fillOval(100, 100, 300, 300);
             for(Monster m: monsters) {
-                g.drawImage(m.getImage(),
+                g.drawImage(m.getMonsterImage().getImageData(),
                         m.getX(),
                         m.getY(),
                         100,
@@ -63,8 +63,6 @@ public class Game extends JFrame {
             }
         }
     }
-
-
 
     public static void main(String[] args) {
         new Game();
